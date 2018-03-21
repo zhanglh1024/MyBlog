@@ -20,5 +20,5 @@ func (c *LoginController)Post(){
 	user.Username = intputs.Get("username")
 	user.Pwd = intputs.Get("pwd")
 	fmt.Println(user)
-
+	c.TplName = "index.tpl"
 }
