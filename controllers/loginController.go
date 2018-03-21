@@ -19,6 +19,7 @@ func (c *LoginController)Post(){
 	intputs := c.Input()
 	user.Username = intputs.Get("username")
 	user.Pwd = intputs.Get("pwd")
-	fmt.Println(user)
-	c.TplName = "index.tpl"
+	fmt.Println(user,"---------------------")
+	c.Redirect("/",301)
+	return
 }
