@@ -11,18 +11,9 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	//c.Data["Website"] = "beego.me"
-	//c.Data["Email"] = "astaxie@gmail.com"
-	sess := c.StartSession()
-	username := sess.Get("username")
-	fmt.Println(username)
+	c.Data["Owner"] = "张隆虎"
+	c.Data["Email"] = "tianaishang@gmail.com"
 	c.TplName = "index.tpl"
 }
 
-func (c *MainController)Post(){
-	var user models.User
-	intputs := c.Input()
-	user.Username = intputs.Get("username")
-	user.Pwd = intputs.Get("pwd")
-	fmt.Println(user)
-}
+

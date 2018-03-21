@@ -15,7 +15,7 @@ type User struct {
 }
 
 func getLink() beedb.Model {
-	db, err := sql.Open("mysql", "root:root@tcp(192.168.1.81:3306)/test_my?charset=utf8")
+	db, err := sql.Open("mysql", "root:root@tcp(192.168.66.118:3306)/Myblog?charset=utf8")
 	if err != nil {
 		panic(err)
 	}
