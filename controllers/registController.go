@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"MyBlog/models"
+	"fmt"
 )
 
 type RegistController struct {
@@ -18,9 +19,11 @@ func (c *RegistController)Post(){
 	intputs := c.Input()
 	user.Username = intputs.Get("username")
 	user.Pwd = intputs.Get("pwd")
-	if models.SaveUser(user) == nil{
+	err := models.SaveUser(user)
+	if err == nil{
 		c.Redirect("/login",301)
 	}else{
+		fmt.Println(err)
 		c.Redirect("/",301)
 	}
 	return

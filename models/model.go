@@ -15,13 +15,15 @@ type User struct {
 }
 
 func getLink() beedb.Model {
-	db, err := sql.Open("mysql", "root:root@tcp(192.168.66.118:3306)/Myblog?charset=utf8")
+	db, err := sql.Open("mymysql", "tcp:127.0.0.1:3306*myblog/root/root")
 	if err != nil {
 		panic(err)
 	}
 	orm := beedb.New(db)
 	return orm
 }
+
+
 
 func SaveUser(user User) error {
 	orm := getLink()
@@ -32,9 +34,9 @@ func SaveUser(user User) error {
 
 func ValidateUser(user User) error {
 	orm := getLink()
-	var u User
-	orm.Where("username=? and pwd=?", user.Username, user.Pwd).Find(&u)
-	if u.Username == "" {
+	var myuser User
+	orm.Where(" Username = ?", user.Username).Find(&myuser)
+	if myuser.Username != user.Username || myuser.Pwd != user.Pwd {
 		return errors.New("用户名或密码错误！")
 	}
 	return nil
