@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        {{template "headcss"}}
+        body{background:black;}
+        .messagebox{width: 800px; position: absolute;left: 50%; margin-left: -400px;border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px;}
+        hr{width: 100%; color: #00ffff;}
+        .inhr{width: 70%; color: #e8eded; }
+        h3{color: #ffffff;margin-left: 5px}
+        h6{color: #ffffff;margin-left: 5px}
+        p{color: #ffffff;margin-left: 5px}
+    </style>
+</head>
+
+<body >
+<div style="background-image:url('../static/img/bg2.jpg'); width:100%;background-size:cover;height:300px;"></div>
+
+<div class="messagebox">
+    <span style="diplay:block; font-size:30px; font-family:'微软雅黑'; color:#a3ff66; margin-left:20px;">留言板：</span>
+    <a style="font-size: 20px; font-family:'汉仪中楷简' ;border-radius: 10px;  top:5px; display:block; width:80px; height:30px; position:absolute; right:30px;text-decoration:none;  border:3px solid #0749ff; line-height:30px; color:#ffff00;"  href="/add/message" >发表留言</a>
+    <hr/>
+{{range .Messages}}
+<h3>留言人：{{.Auther}}</h3>
+    <h6>留言时间：{{.Created}}</h6>
+    <hr class="inhr" />
+    <p>{{.Content}}</p>
+    <hr/>
+{{end}}
+</div>
+
+{{template "headbody" .}}
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
+      {{template  "headjs"}}
+      </script>
+</body>
+</html>

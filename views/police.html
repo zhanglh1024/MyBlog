@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        {{template "headcss"}}
+        body{ background-image:url('../static/img/bg5.jpg'); background-size: cover; }
+        img.back{position: absolute; width: 752px; height: 250px; left: 50%; top: 50%; margin-top: -125px; margin-left: -375px; display: none;}
+    </style>
+</head>
+
+<body onload=show()>
+<img src="../static/img/warn.fw.png" class="back">
+{{template "headbody" .}}
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
+    {{template  "headjs"}}
+    function show(){
+
+        $("img.back").fadeIn(2000);
+    }
+</script>
+</body>
+</html>

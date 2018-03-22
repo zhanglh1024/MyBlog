@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        {{template "headcss"}}
+        body{background:black;}
+        .messagebox{ width: 850px; position: absolute;left: 50%; margin-left: -400px;border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px;height: 350px;top: 260px;}
+        .messagebox .box1{width: 600px; position: absolute;left: 50%; margin-left: -323px;border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px; top:30px;height: 30px;}
+        .messagebox .box2{width: 600px; position: absolute;left: 50%; margin-left: -323px;border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px;top: 130px;height: 200px;}
+        label{position: absolute;font-size: 28px;color: red; font-family: "汉仪中楷简"}
+        .sub{position: absolute;font-size: 25px;color: red; font-family: "汉仪中楷简";height: 30px;line-height: 25px;width: 80px;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px; background:rgba(0,0,0,0); right: 20px;bottom: 20px;}
+    </style>
+</head>
+
+<body >
+<div style="background-image:url('../static/img/bg2.jpg'); width:100%;background-size:cover;height:250px;"></div>
+<div class="messagebox">
+    <form method="post" action="/message" name="myform">
+        <label style="top:25px;">留言人：</label>
+        <div class="box1">
+            <input type="text" name="name" style="border-radius: 10px;height:30px;width: 596px; background:rgba(252,244,0,0);font-size:25px;color:#00ff3f;position:absolute; left:2px; border:0px;font-family: '汉仪中楷简';">
+        </div>
+        <label style="top:130px;">内容：</label>
+        <div class="box2">
+            <textarea name="message" style="border-radius: 10px;height:200px;width: 596px; background:rgba(252,244,0,0); font-size:30px; color:#00ff3f; position:absolute; left:2px; border:0px;font-family: '汉仪中楷简';"  ></textarea>
+        </div>
+        <input type="submit" onclick="return checkInput()" value="发表" class="sub">
+    </form>
+</div>
+{{template "headbody" .}}
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
+    {{template  "headjs"}}
+    function checkInput(){
+        var username=document.forms['myform'].elements["name"];
+        if(username.value.length==0){
+            alert("请输入留言人姓名");
+            return false;
+        }
+        var pwd=document.forms['myform'].elements["message"];
+        if(pwd.value.length==0){
+            alert("请输入内容");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>
