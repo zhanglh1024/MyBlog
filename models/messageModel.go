@@ -24,7 +24,8 @@ func GetAllMessage() ([]Message,error) {
 	return message,err
 }
 
-//func InsertMessage(message *MessageModel) error {
-//	orm:=getLink()
-//	err:= orm.Insert()
-//}
+func InsertMessage(message Message) error {
+	orm:=getLink()
+	err:= orm.Save(&message)
+	return err
+}
