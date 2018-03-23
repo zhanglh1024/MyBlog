@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        {{template "headcss"}}
+        body{background-image: url("../static/img/bg3.jpg");background-size: cover;}
+        img {width: 734px; height: 311px; position: absolute; left: 50%; top: 50%; margin-left: -365px; margin-top: -155px;}
+    </style>
+</head>
+
+<body >
+<img src="../static/img/error.fw.png" >
+{{template "headbody" .}}
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
+      {{template  "headjs"}}
+      </script>
+</body>
+</html>

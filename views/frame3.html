@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        {{template "headcss"}}
+        body{background:black;}
+        .outframe{width: 900px; position: absolute;left: 50%; margin-left: -450px;border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px #07f9f1; border-radius: 10px;top:130px;}
+        img.eye{width: 150px;height: 150px;position: absolute;left: -75px;top: -75px;}
+        .outframe .tit{width: 400px;height: 55px;font-size: 50px;color: yellow; font-family: "汉仪花蝶体简";  left: 50%; margin-left: 250px;line-height: 55px;}
+        hr{width: 100%; color: blue;}
+        form{width: 800px;margin:5px auto;position: relative;}
+        input.sub{border: 2px solid #b2b2b2;box-shadow: 03px 0px 20px green; border-radius: 10px; width: 100px;height: 30px; background:rgba(0,0,0,0); font-size: 20px; font-family: "汉仪花蝶体简"; color: purple;float: right;position: absolute;bottom: -70px; right: 0px;}
+        input.sub:hover{box-shadow: 03px 0px 20px #07f9f1;color: red;}
+        dl{width: 800px;height: 35px;color: red;margin: 3px auto;}
+        dt{color: red; font-size: 30px; width: 180px;line-height: 35px;height: 35px;float: left;font-family: "汉仪花蝶体简"; }
+        dd{float: left;height: 35px; line-height: 35px; color: white;font-size: 28px;font-family: "汉仪中楷简";}
+        input{background:rgba(0,0,0,0); border: 1px dashed #FFB90F;color: #FF00FF;font-size: 20px;}
+        textarea{background:rgba(0,0,0,0); border: 1px dashed #FFB90F;color: #FF00FF;font-size: 20px;}
+    </style>
+</head>
+
+<body >
+<div class="outframe">
+    <div class="tit">业务申请书-泼粪</div>
+    <hr>
+    <img src="../static/img/eye3.png" class="eye" >
+    <form method="POST" action="/frame3" name="myform">
+        <dl>
+            <dt>申请人：</dt><dd><input type="text" name="subname" style="width:200px;"></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>手机号：</dt><dd><input type="text" name="subnumber" style="width:250px;"></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>申请人地址：</dt><dd><input type="text" name="subaddress" style="width:600px;"></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>受害人姓名：</dt><dd><input type="text" name="vicname" style="width:200px;"></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>泼粪重量：</dt><dd><input type="text" name="num" style="width:100px;">千克</dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>手机号：</dt><dd><input type="text" name="vicnumber" style="width:250px;"></dd>
+        </dl>
+        <hr>
+        <dl>
+            <dt>受害人地址：</dt><dd><input type="text" name="vicaddress" style="width:600px;"></dd>
+        </dl>
+        <hr>
+        <dl style="height:200px;">
+            <dt>备注：</dt><dd><textarea name="ps" style="width:600px;height:200px;"></textarea> </dd>
+        </dl>
+        <hr>
+        <input type="submit" class="sub" value="提交">
+    </form>
+</div>
+
+{{template "headbody" .}}
+<script type="text/javascript" src="../static/js/jquery.js"></script>
+<script type="text/javascript">
+      {{template  "headjs"}}
+      </script>
+</body>
+</html>
