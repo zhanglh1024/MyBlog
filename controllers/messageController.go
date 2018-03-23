@@ -16,6 +16,7 @@ func (c *MessageController)Get(){
 	c.Data["IsLogin"] = checkAccount(c.Ctx)
 	message,err:= models.GetAllMessage()
 	if err !=nil {
+		fmt.Println("留言跳转出错",err)
 		beego.Error(err)
 	}else {
 		c.Data["Messages"] = message
@@ -29,7 +30,7 @@ func (c *MessageController)Add(){
 
 func (c *MessageController)Post(){
 	if checkAccount(c.Ctx)==false {
-		c.TplName = "login.html"
+		c.Redirect("/login",302)
 		return
 	}
 	var message models.Message
@@ -42,6 +43,6 @@ func (c *MessageController)Post(){
 		fmt.Println(err)
 		beego.Error(err)
 	}
-	c.Redirect("/message",301)
+	c.Redirect("/message",302)
 	return
 }

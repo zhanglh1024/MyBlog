@@ -6,14 +6,14 @@ import (
 )
 
 type Message struct {
-	Id int64
-	Uid         int64     //留言者ID
-	Content string //`orm:"size(2000)"` //留言内容
-	Attachment  string    //附件
-	Created time.Time //`orm:"index"` //留言时间
-	Auther  string    //留言人姓名
-	ReplayCount int64     //评论个数
-	ReplayId    int64     //评论用户ID
+	Id			 int
+	Uid        	 int     //留言者ID
+	Content 	 string //`orm:"size(2000)"` //留言内容
+	Attachment   string    //附件
+	Created      time.Time //`orm:"index"` //留言时间
+	Auther       string    //留言人姓名
+	ReplayCount  int     //评论个数
+	ReplayId     int     //评论用户ID
 }
 
 func GetAllMessage() ([]Message,error) {
