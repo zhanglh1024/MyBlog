@@ -16,7 +16,26 @@ func (c *FrameController)Get()  {
 	c.Data["IsLogin"] = checkAccount(c.Ctx)
 	c.TplName = "frame.html"
 }
+func (c *FrameController) Post() {
+	//获取表单中信息
+	s := `
+	       <申请人姓名>：` + c.Input().Get("subname") +
+		`  <手机号>:` + c.Input().Get("subnumber") +
+		`  <申请人地址>:` + c.Input().Get("subaddress") +
+		`  <欠款人姓名>：` + c.Input().Get("vicname") +
+		`  <手机号>:` + c.Input().Get("vicnumber") +
+		`  <欠款人地址>:` + c.Input().Get("vicaddress") +
+		`  <欠款额度>：` + c.Input().Get("num") +
+		`  <备注>` + c.Input().Get("ps")
+	err := Send(s) //调用邮件发送函数
+	if err != nil {
+		c.Redirect("/emailerror", 301) //如果发送失败跳转到失败提示页面
+	} else {
+		c.Redirect("/emailsuccess", 301) //如果发送成功跳转到成功提示页面
+	}
 
+	return
+}
 func SendToMail(user,password,host,sendto,subject,body,mailtype string)error{
 	hp := strings.Split(host,":")
 	auth := smtp.PlainAuth("",user,password,hp[0])
@@ -36,9 +55,9 @@ func SendToMail(user,password,host,sendto,subject,body,mailtype string)error{
 }
 
 func Send(s string) error  {
-	user := "15659685590@sina.com" //默认发送邮件的账号密码
+	user := "15659685590@163.com" //默认发送邮件的账号密码
 	password := "zlh984046"
-	host := "smtp.sina.com:25"
+	host := "smtp.163.com:25"
 	to := "2625041684@qq.com" //接收邮件的账号
 
 	subject := "使用Golang发送邮件"
