@@ -40,7 +40,6 @@ func (c *MessageController)Post(){
 
 	err := models.InsertMessage(message)
 	if err != nil{
-		fmt.Println(err)
 		beego.Error(err)
 	}
 	c.Redirect("/message",302)

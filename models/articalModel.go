@@ -19,3 +19,9 @@ func GetAllArtical() ([]Artical, error){
 	return articalModel,err
 
 }
+
+func InsertArtical(artical  *Artical) error {
+	orm := getLink()
+	err := orm.Save(artical)
+	return err
+}

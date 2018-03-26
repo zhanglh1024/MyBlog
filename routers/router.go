@@ -19,4 +19,5 @@ func init() {
 	beego.Router("/frame3", &controllers.Frame3Controller{})
 	beego.Router("/frame4", &controllers.Frame4Controller{})
 	beego.Router("/frame5", &controllers.Frame5Controller{})
+	beego.Router("/addartical", &controllers.AddArticalController{})
 }
